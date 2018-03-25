@@ -1,36 +1,59 @@
 #pragma once
 
+
+
 #include <cassert>
+
+#include <iostream>
 using namespace std;
 
 
-class Timer {
+
+/****************************************************************************************
+* Timer class keeps track of time in this Simulation.
+* The "minute" time unit is used in this Simulation.
+*
+*
+*
+****************************************************************************************/
+
+
+class Timer
+{
+
 
 public:
 
-	//default constructor
-	Timer(int initTime = 0) {
+	// Default constructor
 
-		assert(initTime >= 0);
-		minutes = initTime;
+	Timer()
+	{
+		minutes = 0;
 	}
 
-	//sets minutes to the passed value
-	void set(int minutes) {
+	// Set minutes to the passed value
+
+	void setMinutes(int minutes)
+	{
 
 		assert(minutes >= 0);
 		this->minutes = minutes;
+
 	}
 
-	//'advances' one minute of time
-	void tick() {
 
+	void tick()
+	{
 		minutes--;
 	}
 
-	//returns the number of minutes remaining in the simulation
-	int timeRemaining() const {
 
+
+
+	// Return the number of minutes remaning in the simulation
+
+	int timeRemaining() const
+	{
 		return minutes;
 	}
 
@@ -38,5 +61,9 @@ public:
 private:
 
 	int minutes;
+
+
+
+
 
 };
