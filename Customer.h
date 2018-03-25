@@ -1,77 +1,80 @@
 #pragma once
-#include <iostream>
+
 
 #include "Timer.h"
 
+#include <iostream>
 using namespace std;
 
-class Customer {
+
+/****************************************************************************************
+* Customer class creates a Customer that has a specified time he or she can come to
+* check out and a specified time that a cashier can service this customer.
+*
+*
+*
+****************************************************************************************/
+
+class Customer
+{
 
 public:
 
-	//default constructor
-	Customer() {
 
-		timeOfArrival = serviceTime = 0;
+	// Default constructor
+
+	Customer()
+	{
+
+		arrivalTime = 0;
+		serviceTime = 0;
+
 	}
-	//specificconstructor
-	Customer(const Timer &T, int serviceTime) {
 
-		//record the customer's time of arrival
-		timeOfArrival = T.timeRemaining();
+	// Parameterized constructor
 
-		//set the service time
+	Customer(const Timer & arrivalTime, int serviceTime)
+	{
+
+		this->arrivalTime = arrivalTime.timeRemaining();
+
+		// Set the service time
+		this->serviceTime = serviceTime;
+
+	}
+
+	// Sets the service time for a customer.
+
+	void setServiceTime(int serviceTime)
+	{
 		this->serviceTime = serviceTime;
 	}
-	//copy constructor
-	Customer(const Customer &copyCust) {
 
-		timeOfArrival = copyCust.timeOfArrival;
-		serviceTime = copyCust.serviceTime;
 
+	// Returns the arrival time.
+
+	int getArrivalTime()
+	{
+		return arrivalTime;
 	}
-	//returns the arrival time
-	int getArrivalTime() {
 
-		return timeOfArrival;
-	}
-	//returns a reference to the serviceTime
-	int& getServiceTime() {
+	// Returns a reference of the service time.
 
+	int & getServiceTime()
+	{
 		return serviceTime;
 	}
-	//sets the service time
-	void setServiceTime(int time) {
 
-		serviceTime = time;
-	}
-	//decreases the serviceTime by 1
-	void decrementServicetime() {
 
-		//return serviceTime - 1;
-		serviceTime--;
-	}
-	//displays the object's variables
-	void display(ostream &out) {
 
-		out << "Arrival Time:   " << timeOfArrival << endl;
-		out << "Service Time:   " << serviceTime << endl;
-	}
-	//sets this object to the RHS one
-	const Customer& operator=(const Customer &RHS) {
 
-		if (this == &RHS) return *this;
 
-		this->timeOfArrival = RHS.timeOfArrival;
-		this->serviceTime = RHS.serviceTime;
 
-		return *this;
-	}
 
 private:
-	//member variables
-	int timeOfArrival;
-	int serviceTime;
+
+	int arrivalTime; // Time the customer arrived
+	int serviceTime; // Time the customer is serviced
 
 
 };
