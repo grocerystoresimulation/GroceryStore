@@ -79,7 +79,7 @@ private:
 
 
 template <class Item>
-const typename queue<Item>::size_type queue<Item>::CAPACITY;
+const typename Queue<Item>::size_type Queue<Item>::CAPACITY;
 
 // CONSTRUCTOR for the queue<Item> template class:
 
