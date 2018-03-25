@@ -1,11 +1,4 @@
-#pragma once
-#include "Timer.h"
-#include "Customer.h"
 #include "Simulation.h"
-
-#include <iostream>
-using namespace std;
-
 
 int main()
 {
@@ -15,5 +8,6 @@ int main()
 
 
 	system("Pause");
+
 	return 0;
 }
